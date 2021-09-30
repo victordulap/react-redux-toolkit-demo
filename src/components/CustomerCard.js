@@ -11,14 +11,17 @@ const CustomerCard = ({ name, orders, id }) => {
     if (!customerOrderInput) return;
 
     dispatch(addCustomerFood({ id, order: customerOrderInput }));
+
+    setCustomerOrderInput('');
   };
 
   return (
     <div className="customer-food-card-container">
       <p>{name}</p>
       <div className="customer-foods-container">
-        {orders &&
-          orders.map((order) => <div className="customer-food">{order}</div>)}
+        <div className="customer-food">
+          {orders && orders.map((order) => <p>{order}</p>)}
+        </div>
 
         <div className="customer-food-input-container">
           <input
